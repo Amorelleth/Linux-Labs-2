@@ -1,0 +1,19 @@
+    1  ldd /bin/login | grep pam
+    2  ls -l /lib/x86_64-linux-gnu/libpam*
+    3  ls -l /lib/x86_64-linux-gnu/security
+    4  vim /etc/pam.d/system-auth
+    5  vim /etc/pam.d/su
+    6  su -c "hostname mephi"
+    7  vim /etc/pam.d/su
+    8  vim /etc/pam.d/login
+    9  man pam_pwquality
+   10  vim /etc/security/pwquality.conf
+   11  vim /etc/pam.d/system-auth 
+   12  sudo passwd qwerty
+   13  passwd qwerty
+   14  man man pam_limits
+   15  vim /etc/security/limits.conf
+   16  cd /etc/pam.d/
+   17  ls
+   18  touch check
+   19  vim check
