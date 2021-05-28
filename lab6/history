@@ -1,0 +1,19 @@
+13 ls -l /dev/sda{,[123]}
+14 sblk —list
+15 cat /proc/diskstats
+16 cat /proc/devices
+17 dd if=/dev/zero of=./fs.img bs=1M count=10
+18 losetup —find —show ./fs.img
+19 sudo losetup —find —show ./fs.img
+20 losetup —list
+21 mkfs -t ext4 /dev/loop0
+22 sudo mkfs -t ext4 /dev/loop0
+23 blkid /dev/loop0
+24 mount /dev/loop0 /mnt
+25 mount | grep /mnt
+26 df -h /mnt
+27 df -hi /mnt
+28 umount /dev/loop0
+29 tune2fs -l /dev/loop0
+30 losetup —list
+31 history
