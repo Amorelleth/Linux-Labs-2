@@ -1,0 +1,7 @@
+[Unit]
+Decription=test
+After=sshd.service
+[Service]
+ExecStart=/usr/bin/printf "hello world"
+[Install]
+WantedBy=multi-user.target
