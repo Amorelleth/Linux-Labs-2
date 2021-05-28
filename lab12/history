@@ -1,0 +1,52 @@
+    1  history
+    2  ldd /bin/ls | grep selinux
+    3  ls -l /etc/selinux/
+    4  ls -l /etc/selinux/targeted/
+    5  id -Z
+    6  ls -Z /etc/passwd /etc/group /etc/shadow
+    7  ls -Z /etc/login.defs /etc/sudoers
+    8  ls -Z /usr/bin/passwd 
+    9  ls -Z /usr/sbin/useradd 
+   10  getfattr -n security.selinux /etc/passwd
+   11  ps Zaux
+   12  ls /proc/$$/attr
+   13  ps Z $(pgrep passwd)
+   14  netstat -tnlpZ
+   15  sestatus 
+   16  getenforce
+   17  vim /etc/selinux/config
+   18  setenforce 1
+   19  echo 1 > /sys/fs/selinux/enforce
+   20  getsebool -a | grep httpd
+   21  v
+   22  getsebool -a | grep httpd
+   23  history
+   24  seinfo
+   25  seinfo -cfile -x
+   26  seinfo --class | grep file
+   27  grep 'httpd_.*_t' /etc/selinux/targeted/contexts/files/file_contexts
+   28  semanage fcontext -l
+   29  cd ~
+   30  touch file
+   31  ls -Z file
+   32  ls
+   33  touch dir
+   34  ls -Z /dir
+   35  ls -Z ./dir
+   36  mount server:/export /local/mount/point -o \ context="system_u:object_r:httpd_sys_content_t:s0"
+   37  mount server:/export /local/mount/point -o context="system_u:object_r:httpd_sys_content_t:s0"
+   38  mount server:/export /dir -o context="system_u:object_r:httpd_sys_content_t:s0"
+   39  mount server:/export ~./dir -o context="system_u:object_r:httpd_sys_content_t:s0"
+   40  mount server:/export ~/dir -o context="system_u:object_r:httpd_sys_content_t:s0"
+   41  chcon -R -t httpd_sys_content_t dir
+   42  ls
+   43  sesearch -T -s httpd_t -t var_log_t
+   44  sesearch -T -s httpd_t -t tmp_t
+   45  sesearch --allow --source passwd_t --target shadow_t --class file
+   46  sesearch -A -s passwd_t -t passwd_exec_t -c file
+   47  sesearch -A -s unconfined_t -t passwd_exec_t -c file
+   48  sesearch -A -s unconfined_t -t passwd_t -c process
+   49  sesearch --type_trans -s unconfined_t -t passwd_exec_t
+   50  ausearch -m avc -ts recent
+   51  seinfo | grep -E '(dontaudit|allow)'
+   52  history
